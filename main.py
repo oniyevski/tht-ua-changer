@@ -11,8 +11,8 @@ console.print("[bold cyan1](...) Your actions are expected.[/bold cyan1]", no_wr
 class RequestLogger:
     async def request(self, flow: http.HTTPFlow):
         url = flow.request.url
-        flow.request.headers["User-Agent"] = "TURK HACK TEAM 57. ALAY KULUBU"
-        console.print(f"Client: {url}")
+        flow.request.headers["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_2) AppleWebKit/617.26.6 (KHTML, like Gecko) Version/15.3.26 Safari/617.26.6" # Manipülasyon sonrası isteklerimizin yapılacağı USER-AGENT.
+        console.print(f"Client: {url}") # Cihazımızın istek gönderdiği bağlantılar.
 
 async def start_proxy(host, port):
     opts = options.Options(listen_host=host, listen_port=port)
@@ -35,7 +35,7 @@ async def create_tasks_func(host, port):
 
 def main():
     try:
-        loop.run_until_complete(create_tasks_func('192.168.1.34', 1889))
+        loop.run_until_complete(create_tasks_func('127.0.0.1', 1881))  # MITM clientimizin dinleyeceği IP adresi ve Port.
         loop.close()
     except Exception as e:
         print(e)
